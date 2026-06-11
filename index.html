@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bahçeli Köyü · Ürgüp, Kapadokya</title>
+<meta name="description" content="Bahçeli Köyü — Ürgüp, Kapadokya. Tüften oyulmuş vadinin tarihi, kaya kiliseleri, asırlık bağları ve ziyaret bilgileri.">
+<!-- Fonts: yüklenmezse sistem yedekleri devreye girer -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --soot:#241C16;
+    --soot-2:#1A130E;
+    --stone:#6B5C4D;
+    --tuff:#E6DAC6;
+    --tuff-2:#DDCFB6;
+    --paper:#F4EDDF;
+    --hematite:#A23B2D;
+    --hematite-deep:#87301F;
+    --line:rgba(36,28,22,0.14);
+    --line-strong:rgba(36,28,22,0.28);
+    --font-display:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+    --font-body:"Source Sans 3","Source Sans Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+
+  body{
+    margin:0;
+    background:var(--tuff);
+    color:var(--soot);
+    font-family:var(--font-body);
+    font-weight:400;
+    font-size:18px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  /* ---------- Catalogue label (signature) ---------- */
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--hematite);
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:34px;height:1px;
+    background:var(--hematite);
+    opacity:.7;
+  }
+
+  /* ---------- Header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(230,218,198,0.88);
+    backdrop-filter:saturate(120%) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;padding:14px 28px;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{display:flex;flex-direction:column;line-height:1.05;text-decoration:none;}
+  .brand b{font-family:var(--font-display);font-weight:600;font-size:24px;letter-spacing:.01em;}
+  .brand span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--stone);margin-top:3px;}
+  .nav-links{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+  .nav-links a{
+    text-decoration:none;color:var(--soot);
+    font-size:14px;letter-spacing:.02em;
+    padding:8px 12px;border-radius:2px;
+    transition:color .2s,background .2s;
+  }
+  .nav-links a:hover{color:var(--hematite);}
+  .lang{
+    margin-left:6px;display:inline-flex;border:1px solid var(--line-strong);border-radius:2px;overflow:hidden;
+  }
+  .lang button{
+    font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;
+    background:transparent;border:0;color:var(--stone);
+    padding:7px 10px;cursor:pointer;transition:background .2s,color .2s;
+  }
+  .lang button.active{background:var(--soot);color:var(--tuff);}
+  .lang button:focus-visible,.nav-links a:focus-visible{outline:2px solid var(--hematite);outline-offset:2px;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;align-items:flex-end;
+    /* Gerçek fotoğraf için: background-image satırını images/hero.jpg ile değiştirin */
+    background:
+      linear-gradient(180deg,rgba(26,19,14,0.18) 0%,rgba(26,19,14,0.55) 70%,rgba(26,19,14,0.78) 100%),
+      url('images/hero.jpg');
+    background-size:cover;background-position:center;
+    color:#F4EDDF;
+    overflow:hidden;
+  }
+  .hero .ridge{position:absolute;left:0;right:0;bottom:-1px;width:100%;display:block;}
+  .hero-inner{position:relative;z-index:2;padding:0 28px 64px;max-width:var(--maxw);margin:0 auto;width:100%;}
+  .hero .eyebrow{color:#E9C0A0;}
+  .hero .eyebrow::before{background:#E9C0A0;}
+  .hero h1{
+    font-family:var(--font-display);font-weight:500;
+    font-size:clamp(54px,9vw,108px);line-height:.96;
+    margin:0 0 18px;letter-spacing:.005em;
+    text-shadow:0 2px 30px rgba(0,0,0,.35);
+  }
+  .hero p.lede{
+    font-size:clamp(18px,2.2vw,23px);max-width:640px;margin:0;
+    color:#F0E6D6;font-weight:300;
+  }
+  .hero .meta{
+    margin-top:26px;font-family:var(--font-mono);font-size:12px;
+    letter-spacing:.12em;color:#E4D4be;display:flex;gap:22px;flex-wrap:wrap;
+  }
+
+  /* ---------- Sections ---------- */
+  .section{padding:96px 0;border-bottom:1px solid var(--line);}
+  .section.alt{background:var(--tuff-2);}
+  .section h2{
+    font-family:var(--font-display);font-weight:500;
+    font-size:clamp(34px,5vw,52px);line-height:1.05;margin:0 0 28px;
+  }
+  .lead{font-size:21px;line-height:1.65;color:var(--soot);max-width:62ch;}
+  .prose p{max-width:64ch;color:#3b2f25;}
+  .prose p + p{margin-top:1.1em;}
+
+  .cols{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;}
+  @media (max-width:820px){.cols{grid-template-columns:1fr;gap:36px;}}
+
+  /* Katalog: öne çıkanlar */
+  .catalogue{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong);}
+  .catalogue li{
+    display:flex;gap:18px;align-items:baseline;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .catalogue .idx{font-family:var(--font-mono);font-size:12px;color:var(--hematite);letter-spacing:.1em;min-width:34px;}
+  .catalogue .k{font-family:var(--font-display);font-size:23px;font-weight:600;}
+  .catalogue .d{display:block;font-size:15px;color:var(--stone);margin-top:2px;}
+
+  /* ---------- Gallery ---------- */
+  .gallery{columns:3 240px;column-gap:16px;}
+  .gallery figure{
+    margin:0 0 16px;break-inside:avoid;border:1px solid var(--line);
+    background:var(--paper);overflow:hidden;border-radius:2px;
+  }
+  .ph{
+    aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+    background:
+      repeating-linear-gradient(135deg,rgba(36,28,22,.04) 0 10px,transparent 10px 20px),
+      linear-gradient(160deg,#E2D3ba,#cdb997);
+    color:var(--stone);
+  }
+  .ph svg{width:46px;height:46px;opacity:.5;}
+  .gallery figcaption{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--stone);padding:9px 12px;}
+  @media (max-width:560px){.gallery{columns:2 140px;}}
+
+  /* ---------- Visit ---------- */
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:820px){.info-grid{grid-template-columns:1fr;}}
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:2px;
+    padding:26px 24px;
+  }
+  .card h3{font-family:var(--font-display);font-weight:600;font-size:24px;margin:0 0 10px;}
+  .card p{margin:0;font-size:16px;color:#3b2f25;}
+  .card .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--hematite);display:block;margin-bottom:12px;}
+
+  .map{
+    margin-top:34px;border:1px solid var(--line-strong);border-radius:2px;overflow:hidden;
+    background:var(--paper);
+  }
+  .map .ph-map{
+    min-height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:
+      repeating-linear-gradient(0deg,rgba(36,28,22,.05) 0 1px,transparent 1px 26px),
+      repeating-linear-gradient(90deg,rgba(36,28,22,.05) 0 1px,transparent 1px 26px),
+      linear-gradient(160deg,#E2D3ba,#d2bf9f);
+    color:var(--stone);text-align:center;padding:30px;
+  }
+  .map .ph-map span{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;}
+
+  /* ---------- Buttons / links ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--font-mono);font-size:13px;letter-spacing:.06em;
+    text-decoration:none;color:var(--paper);background:var(--hematite);
+    padding:13px 22px;border-radius:2px;transition:background .2s,transform .15s;
+  }
+  .btn:hover{background:var(--hematite-deep);}
+  .btn:focus-visible{outline:2px solid var(--soot);outline-offset:2px;}
+  .btn.ghost{background:transparent;color:var(--soot);border:1px solid var(--line-strong);}
+  .btn.ghost:hover{border-color:var(--hematite);color:var(--hematite);}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  @media (max-width:820px){.contact-grid{grid-template-columns:1fr;gap:30px;}}
+  .contact-list{list-style:none;margin:24px 0 0;padding:0;}
+  .contact-list li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;}
+  .contact-list .label{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:3px;}
+  .contact-list .val{font-size:19px;}
+  .contact-list a{color:var(--hematite);text-decoration:none;}
+  .contact-list a:hover{text-decoration:underline;}
+
+  /* ---------- Footer ---------- */
+  footer.site{background:var(--soot-2);color:#D9CBB4;padding:54px 0 40px;}
+  footer.site .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end;}
+  footer .f-brand b{font-family:var(--font-display);font-size:26px;color:var(--tuff);display:block;}
+  footer .f-brand span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#9c8c73;}
+  footer small{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;color:#9c8c73;line-height:1.8;}
+
+  /* Utility for language switching */
+  [data-en]{display:revert;}
+
+  /* ---------- Sites (heritage cards) ---------- */
+  .sites{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:44px;}
+  @media (max-width:820px){.sites{grid-template-columns:1fr;}}
+  .site-card{background:var(--paper);border:1px solid var(--line);border-radius:2px;overflow:hidden;display:flex;flex-direction:column;}
+  .site-card .img{position:relative;}
+  .site-card .img .ph{aspect-ratio:16/10;flex-direction:column;gap:10px;}
+  .site-card .img .ph .fn{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;color:var(--stone);}
+  .site-card .img img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;}
+  .site-card .body{padding:22px 22px 24px;}
+  .site-card .cat{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--hematite);display:block;margin-bottom:9px;}
+  .site-card h3{font-family:var(--font-display);font-weight:600;font-size:26px;line-height:1.1;margin:0 0 12px;}
+  .site-card p{margin:0;font-size:15.5px;line-height:1.65;color:#3b2f25;}
+
+  /* ---------- Map (Leaflet / OSM) ---------- */
+  #map{height:460px;width:100%;position:relative;z-index:1;border:1px solid var(--line-strong);border-radius:2px;margin-top:10px;background:linear-gradient(160deg,#E2D3ba,#d2bf9f);}
+  #map.failed{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--stone);font-family:var(--font-mono);font-size:12px;}
+  .map-cap{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--stone);margin:10px 0 0;}
+  .leaflet-container{font-family:var(--font-body);}
+  .pin{background:transparent;border:0;}
+  .pin span{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:2px solid #F4EDDF;box-shadow:0 1px 5px rgba(0,0,0,.45);}
+  .pin span svg{width:15px;height:15px;fill:#F4EDDF;}
+  .pin.c-church span{background:#A23B2D;}
+  .pin.c-mosque span{background:#B07A2E;}
+  .pin.c-rock span{background:#6B5C4D;}
+  .pin.c-nature span{background:#5E7A3C;}
+  .pin.c-center span{background:#241C16;}
+  .map-legend{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:14px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.04em;color:var(--stone);}
+  .map-legend .lg{display:inline-flex;align-items:center;gap:7px;}
+  .map-legend .dot{width:13px;height:13px;border-radius:50%;border:1.5px solid #F4EDDF;box-shadow:0 0 0 1px var(--line);flex:none;}
+  .map-legend .c-church{background:#A23B2D;}
+  .map-legend .c-mosque{background:#B07A2E;}
+  .map-legend .c-rock{background:#6B5C4D;}
+  .map-legend .c-nature{background:#5E7A3C;}
+  .map-legend .c-center{background:#241C16;}
+  .leaflet-popup-content{margin:12px 16px;}
+  .leaflet-popup-content .pn{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--hematite);}
+  .leaflet-popup-content .pt{font-family:var(--font-display);font-size:20px;font-weight:600;display:block;margin:2px 0 8px;line-height:1.1;}
+  .leaflet-popup-content a{color:var(--hematite);font-size:13px;font-family:var(--font-mono);text-decoration:none;}
+  .leaflet-popup-content a:hover{text-decoration:underline;}
+  .loc-link{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;color:var(--hematite);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px;}
+  .loc-link:hover{border-bottom-color:var(--hematite);}
+  .loc-link svg{width:14px;height:14px;flex:none;}
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <nav class="nav">
+    <a class="brand" href="#top">
+      <b>Bahçeli Köyü</b>
+      <span>Ürgüp · Kapadokya</span>
+    </a>
+    <div class="nav-links">
+      <a href="#tarihce" data-tr="Tarihçe" data-en="History">Tarihçe</a>
+      <a href="#gezilecekler" data-tr="Gezilecekler" data-en="Sites">Gezilecekler</a>
+      <a href="#ziyaret" data-tr="Ziyaret" data-en="Visit">Ziyaret</a>
+      <a href="#iletisim" data-tr="İletişim" data-en="Contact">İletişim</a>
+      <span class="lang" role="group" aria-label="Dil / Language">
+        <button id="btn-tr" class="active" onclick="setLang('tr')">TR</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </span>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow" data-tr="Ürgüp · Nevşehir · Kapadokya" data-en="Ürgüp · Nevşehir · Cappadocia">Ürgüp · Nevşehir · Kapadokya</p>
+      <h1 data-tr="Bahçeli Köyü" data-en="Bahçeli Village">Bahçeli Köyü</h1>
+      <p class="lede"
+         data-tr="Tüften oyulmuş bir vadide; bağların, kaya kiliselerinin ve asırlık taş ustalığının köyü."
+         data-en="A village carved into the tuff — of vineyards, rock-cut churches, and centuries of stone craft.">
+         Tüften oyulmuş bir vadide; bağların, kaya kiliselerinin ve asırlık taş ustalığının köyü.</p>
+      <div class="meta">
+        <span data-tr="Rakım 1359 m" data-en="Altitude 1,359 m">Rakım 1359 m</span>
+        <span data-tr="Ürgüp 15 km · Nevşehir 20 km" data-en="Ürgüp 15 km · Nevşehir 20 km">Ürgüp 15 km · Nevşehir 20 km</span>
+      </div>
+    </div>
+    <!-- İmza: kaya silüeti / carved ridge -->
+    <svg class="ridge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#E6DAC6" d="M0,90 L0,52 Q60,40 100,48 L120,30 L150,52 Q210,44 250,52 L268,22 L292,52 Q360,42 420,52 L440,34 L470,54 Q540,46 600,52 L630,18 L660,52 Q740,44 820,52 L850,32 L884,54 Q960,46 1040,52 L1075,24 L1110,52 Q1200,44 1280,50 L1320,36 L1360,52 Q1410,46 1440,52 L1440,90 Z"/>
+    </svg>
+  </section>
+
+  <!-- ============ TARİHÇE ============ -->
+  <section class="section" id="tarihce">
+    <div class="wrap">
+      <p class="eyebrow" data-tr="Bölüm 01 · Tarihçe & Tanıtım" data-en="Part 01 · History & About">Bölüm 01 · Tarihçe & Tanıtım</p>
+      <div class="cols">
+        <div class="prose">
+          <h2 data-tr="Tüfün içine yazılmış bir köy" data-en="A village written into the tuff">Tüfün içine yazılmış bir köy</h2>
+          <p class="lead" data-tr="Kapadokya Bölgesi sınırları içinde yer alan Bahçeli, Nevşehir&#x27;in Ürgüp ilçesine bağlı, zengin tarihi dokusuyla öne çıkan bir köydür." data-en="Within the Cappadocia region, Bahçeli is a village of the Ürgüp district of Nevşehir, distinguished by its rich historical fabric.">Kapadokya Bölgesi sınırları içinde yer alan Bahçeli, Nevşehir'in Ürgüp ilçesine bağlı, zengin tarihi dokusuyla öne çıkan bir köydür.</p>
+          <p data-tr="Ürgüp merkeze 15, Nevşehir şehir merkezine 20 kilometre mesafedeki bu şirin yerleşim; Ayvalı, İbrahimpaşa, Mazı, Güneyce, Çardak ve Kavak köyleriyle komşudur. 1359 metre rakıma ve 371 kişilik resmi nüfusa sahip köy, büyüleyici Mamasun Vadisi&#x27;nin batı yamacına kurulmuştur." data-en="Fifteen kilometres from central Ürgüp and twenty from Nevşehir, this charming settlement borders the villages of Ayvalı, İbrahimpaşa, Mazı, Güneyce, Çardak and Kavak. At an altitude of 1,359 metres and with an official population of 371, it sits on the western slope of the enchanting Mamasun Valley.">Ürgüp merkeze 15, Nevşehir şehir merkezine 20 kilometre mesafedeki bu şirin yerleşim; Ayvalı, İbrahimpaşa, Mazı, Güneyce, Çardak ve Kavak köyleriyle komşudur. 1359 metre rakıma ve 371 kişilik resmi nüfusa sahip köy, büyüleyici Mamasun Vadisi'nin batı yamacına kurulmuştur.</p>
+          <p data-tr="En yüksek noktasında köy mezarlığı, en alçak noktasından ise İçeri Dere akar. Vadiye yayılan kaya kiliseleri, güvercinlikler, şırahaneler ve asırlık taş ustalığı, köyün kesintisiz yerleşim tarihinin tanığıdır." data-en="At its highest point lies the village cemetery, while the İçeri Dere stream runs along its lowest. The rock-cut churches, dovecotes and wine presses spread through the valley, together with centuries of stone craft, witness the village&#x27;s uninterrupted history of settlement.">En yüksek noktasında köy mezarlığı, en alçak noktasından ise İçeri Dere akar. Vadiye yayılan kaya kiliseleri, güvercinlikler, şırahaneler ve asırlık taş ustalığı, köyün kesintisiz yerleşim tarihinin tanığıdır.</p>
+        </div>
+        <div>
+          <p class="eyebrow" data-tr="Öne çıkanlar" data-en="Highlights">Öne çıkanlar</p>
+          <ul class="catalogue">
+            <li><span class="idx">01</span><span><span class="k" data-tr="Mamasun Vadisi" data-en="Mamasun Valley">Mamasun Vadisi</span><span class="d" data-tr="Açık hava müzesi: 8 kaya kilisesi, mezarlar, güvercinlikler" data-en="Open-air museum: 8 rock-cut churches, tombs, dovecotes">Açık hava müzesi: 8 kaya kilisesi, mezarlar, güvercinlikler</span></span></li>
+            <li><span class="idx">02</span><span><span class="k" data-tr="Kaya kiliseleri &amp; freskler" data-en="Rock-cut churches &amp; frescoes">Kaya kiliseleri &amp; freskler</span><span class="d" data-tr="9.–10. yüzyıla tarihlenen duvar resimleri" data-en="Murals dated to the 9th–10th centuries">9.–10. yüzyıla tarihlenen duvar resimleri</span></span></li>
+            <li><span class="idx">03</span><span><span class="k" data-tr="Osman Efendi Camii (1746)" data-en="Osman Efendi Mosque (1746)">Osman Efendi Camii (1746)</span><span class="d" data-tr="Birinci derece tescilli Osmanlı camii" data-en="First-degree registered Ottoman mosque">Birinci derece tescilli Osmanlı camii</span></span></li>
+            <li><span class="idx">04</span><span><span class="k" data-tr="Acı Su" data-en="Acı Su">Acı Su</span><span class="d" data-tr="Köyün geleneksel doğal maden suyu kaynağı" data-en="The village&#x27;s traditional mineral spring">Köyün geleneksel doğal maden suyu kaynağı</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALERİ ============ -->
+  <section class="section alt" id="gezilecekler">
+    <div class="wrap">
+      <p class="eyebrow" data-tr="Tarihi ve Turistik Yapılar" data-en="Historical &amp; Touristic Sites">Tarihi ve Turistik Yapılar</p>
+      <h2 data-tr="Köyü ve vadiyi gezenler için" data-en="For those exploring the village &amp; valley">Köyü ve vadiyi gezenler için</h2>
+      <p class="lead" data-tr="Bahçeli ve onu çevreleyen Mamasun Vadisi; kaya kiliseleri, manastır kompleksleri, kaya oyma yerleşimler, anıt mezarlar ve doğal su tünelleriyle adeta açık hava müzesidir. Aşağıdaki yapıların her biri için görseller eklenecektir." data-en="Bahçeli and the surrounding Mamasun Valley form an open-air museum of rock-cut churches, monastic complexes, rock dwellings, monumental tombs and natural water tunnels. A photograph will be added for each of the sites below." style="margin-bottom:8px;">Bahçeli ve onu çevreleyen Mamasun Vadisi; kaya kiliseleri, manastır kompleksleri, kaya oyma yerleşimler, anıt mezarlar ve doğal su tünelleriyle adeta açık hava müzesidir. Aşağıdaki yapıların her biri için görseller eklenecektir.</p>
+      <div id="map" role="region" aria-label="Bahçeli Köyü haritası"></div>
+      <p class="map-cap" data-tr="Pinlere dokunarak yapıyı görün · OpenStreetMap" data-en="Tap a pin to view each site · OpenStreetMap">Pinlere dokunarak yapıyı görün · OpenStreetMap</p>
+      <div class="map-legend">
+        <span class="lg"><i class="dot c-church"></i><span data-tr="Kilise" data-en="Church">Kilise</span></span>
+        <span class="lg"><i class="dot c-mosque"></i><span data-tr="Cami" data-en="Mosque">Cami</span></span>
+        <span class="lg"><i class="dot c-rock"></i><span data-tr="Kaya yapıları" data-en="Rock structures">Kaya yapıları</span></span>
+        <span class="lg"><i class="dot c-nature"></i><span data-tr="Doğa" data-en="Nature">Doğa</span></span>
+        <span class="lg"><i class="dot c-center"></i><span data-tr="Köy Meydanı" data-en="Village Square">Köy Meydanı</span></span>
+      </div>
+      <div class="sites">
+    <article class="site-card" id="mamasun-vadisi"><div class="img"><img src="images/10-mamasun-vadisi.jpg" alt="Mamasun Vadisi" loading="lazy"></div><div class="body"><span class="cat" data-tr="Vadi · güneyden kuzeye" data-en="Valley · south to north">Vadi · güneyden kuzeye</span><h3 data-tr="Mamasun Vadisi" data-en="Mamasun Valley">Mamasun Vadisi</h3><p data-tr="Bahçeli&#x27;nin güneyinde üç ana kolla başlayıp kuzeyde Gomeda Vadisi ile birleşen, kuş uçuşu yaklaşık 15 kilometrelik bir su aşındırması oluşumu olan Mamasun Vadisi adeta bir açık hava müzesidir. Vadi içinde bugüne dek tespit edilmiş sekiz kaya oyma kilisenin yanı sıra çok sayıda kaya mezarı, güvercinlik, şırahane, kaya oyma arılık, sivil mimari örneği, taş köprü ve çeşme ziyaretçileri bekler. Bu zengin kültürel mirasın yanında vadinin gizli doğa hazinelerinden biri de yöre halkının &quot;Acı Su&quot; olarak adlandırdığı doğal maden suyu kaynağıdır." data-en="Beginning south of Bahçeli with three main branches and joining the Gomeda Valley to the north, the Mamasun Valley is a roughly 15-kilometre water-carved formation — effectively an open-air museum. Alongside the eight rock-cut churches identified so far, it holds many rock tombs, dovecotes, wine presses, rock-cut apiaries, examples of vernacular architecture, stone bridges and fountains. Beyond this rich cultural heritage, one of the valley&#x27;s hidden natural treasures is the mineral spring locally known as &quot;Acı Su.&quot;">Bahçeli'nin güneyinde üç ana kolla başlayıp kuzeyde Gomeda Vadisi ile birleşen, kuş uçuşu yaklaşık 15 kilometrelik bir su aşındırması oluşumu olan Mamasun Vadisi adeta bir açık hava müzesidir. Vadi içinde bugüne dek tespit edilmiş sekiz kaya oyma kilisenin yanı sıra çok sayıda kaya mezarı, güvercinlik, şırahane, kaya oyma arılık, sivil mimari örneği, taş köprü ve çeşme ziyaretçileri bekler. Bu zengin kültürel mirasın yanında vadinin gizli doğa hazinelerinden biri de yöre halkının "Acı Su" olarak adlandırdığı doğal maden suyu kaynağıdır.</p></div></article>
+    <article class="site-card" id="iceridere-kilisesi"><div class="img"><img src="images/04-iceridere-kilisesi.jpg" alt="İçeridere Kilisesi" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kilise · İçeridere Vadisi" data-en="Church · İçeridere Valley">Kilise · İçeridere Vadisi</span><h3 data-tr="İçeridere Kilisesi" data-en="İçeridere Church">İçeridere Kilisesi</h3><p data-tr="Ürgüp&#x27;ün Bahçeli köyü yakınındaki İçeridere Vadisi&#x27;nde, halk arasında Kırk Guğle olarak da bilinen bölgede yer alan İçeridere Kilisesi, Kapadokya&#x27;nın gizemli tarihi dokusunu yansıtan önemli duraklardandır. İki nefli yapının çevresinde tespit edilen şırahane ve tandırlı mutfak gibi ek odalar, buranın geniş bir manastır kompleksinin parçası olduğunu gösterir. Zemindeki mezar yapısı ve duvar resimlerinde ölümle ilintili sahnelerin öne çıkması, mekânın bir mezar kilisesi olarak tasarlandığını ortaya koyar. 9.–10. yüzyıllara tarihlenen, kırmızı ve yeşil boyaların kullanıldığı kısmen korunmuş fresklerde Hz. İsa&#x27;nın yaşamından kesitler, Eski Ahit sahneleri ve Son Mahkeme tasvirleri çarpıcı biçimde yer alır. Özellikle orijinal giriş kapısının üstündeki yaklaşık 1 metre çapındaki görkemli Çarmıh tasviri, erken dönem sanatsal mirası keşfetmek isteyenler için büyüleyici bir atmosfer sunar." data-en="In the İçeridere Valley near Bahçeli — an area locally known as Kırk Guğle — this two-naved church is one of the most evocative stops in Cappadocia&#x27;s mysterious landscape. Adjoining rooms found nearby, including a wine press and a kitchen with a tandır oven, show it was part of a larger monastic complex. A tomb set into the floor and the prominence of death-related scenes in its murals reveal that it was conceived as a funerary church. Partly preserved frescoes dated to the 9th–10th centuries, painted in red and green, depict episodes from the life of Christ, scenes from the Old Testament and the Last Judgment. The roughly one-metre Crucifixion above the original doorway makes this a captivating place for anyone exploring Cappadocia&#x27;s early artistic heritage.">Ürgüp'ün Bahçeli köyü yakınındaki İçeridere Vadisi'nde, halk arasında Kırk Guğle olarak da bilinen bölgede yer alan İçeridere Kilisesi, Kapadokya'nın gizemli tarihi dokusunu yansıtan önemli duraklardandır. İki nefli yapının çevresinde tespit edilen şırahane ve tandırlı mutfak gibi ek odalar, buranın geniş bir manastır kompleksinin parçası olduğunu gösterir. Zemindeki mezar yapısı ve duvar resimlerinde ölümle ilintili sahnelerin öne çıkması, mekânın bir mezar kilisesi olarak tasarlandığını ortaya koyar. 9.–10. yüzyıllara tarihlenen, kırmızı ve yeşil boyaların kullanıldığı kısmen korunmuş fresklerde Hz. İsa'nın yaşamından kesitler, Eski Ahit sahneleri ve Son Mahkeme tasvirleri çarpıcı biçimde yer alır. Özellikle orijinal giriş kapısının üstündeki yaklaşık 1 metre çapındaki görkemli Çarmıh tasviri, erken dönem sanatsal mirası keşfetmek isteyenler için büyüleyici bir atmosfer sunar.</p></div></article>
+    <article class="site-card" id="ala-kilise"><div class="img"><img src="images/14-ala-kilise.jpg" alt="Ala Kilise" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kilise · ~5 km güney" data-en="Church · ~5 km south">Kilise · ~5 km güney</span><h3 data-tr="Ala Kilise" data-en="Ala Kilise">Ala Kilise</h3><p data-tr="Bahçeli ve Ayvalı köylerinin arasında, her iki yerleşime de yaklaşık 5 kilometre güneyde konumlanan Ala Kilise, bölgenin görkemli kaya oyma yapılarından biridir. Çevresindeki şırahane, farklı tiplerde kaya oyma tarımsal yapılar ve bir yeraltı tüneliyle birlikte değerlendirildiğinde, alanın geniş bir manastır kompleksi olduğu anlaşılır. Büyük bir ana kayanın içine oyulan yapı, benzerlerine göre oldukça büyük ölçeklidir; ancak günümüzde tavanı tamamen çökmüştür. Batıya bakan giriş kapısında ve iç mekânda az miktarda duvar resmi kalıntısı göze çarpar. Kompleksin tarihi derinliğine ışık tutan en heyecan verici detay ise, kaya oyma bir şırahanenin duvarında bulunan ve 1053 yılına tarihlenen eşsiz yazıttır." data-en="Between the villages of Bahçeli and Ayvalı, about 5 km south of each, Ala Kilise is one of the region&#x27;s grandest rock-cut structures. Considered together with its wine press, various rock-cut agricultural buildings and an underground tunnel, the site is understood to be a large monastic complex. Carved into a single great rock mass, it is unusually large by Cappadocian standards, though its ceiling has now wholly collapsed. Small remnants of mural painting survive on the west-facing doorway and interior. The most exciting detail is a unique inscription dated to the year 1053, found on the wall of a rock-cut wine press.">Bahçeli ve Ayvalı köylerinin arasında, her iki yerleşime de yaklaşık 5 kilometre güneyde konumlanan Ala Kilise, bölgenin görkemli kaya oyma yapılarından biridir. Çevresindeki şırahane, farklı tiplerde kaya oyma tarımsal yapılar ve bir yeraltı tüneliyle birlikte değerlendirildiğinde, alanın geniş bir manastır kompleksi olduğu anlaşılır. Büyük bir ana kayanın içine oyulan yapı, benzerlerine göre oldukça büyük ölçeklidir; ancak günümüzde tavanı tamamen çökmüştür. Batıya bakan giriş kapısında ve iç mekânda az miktarda duvar resmi kalıntısı göze çarpar. Kompleksin tarihi derinliğine ışık tutan en heyecan verici detay ise, kaya oyma bir şırahanenin duvarında bulunan ve 1053 yılına tarihlenen eşsiz yazıttır.</p></div></article>
+    <article class="site-card" id="dam-onu-kilisesi"><div class="img"><img src="images/01-dam-onu-kilisesi.jpg" alt="İki Damönü Kilisesi" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kilise · ~300 m kuzey" data-en="Church · ~300 m north">Kilise · ~300 m kuzey</span><h3 data-tr="İki Damönü Kilisesi" data-en="İki Damönü Church">İki Damönü Kilisesi</h3><p data-tr="Bahçeli köyünün yaklaşık 300 metre kuzeyinde konumlanan Dam Önü Kilisesi, dışarıdan bakıldığında yan yana iki giriş kapısı olan bir yapı izlenimi verir. Doğu yönündeki girişin ardındaki alan zamanla tamamen çökmüş ve işlevini yitirmiş olsa da, batı yönündeki kapıdan geçildiğinde yaklaşık 4×5 metre ölçülerindeki asıl kilise mekânına ulaşılır. İki nefli ve çift apsisli özgün bir plana sahip yapıda girişe yakın güney bölüm beşik tonozla örtülüyken kuzey nefi düz tavanlıdır. Tek mekânda iki farklı mimari üslubun bir arada görülmesi, kuzeydeki nefin kiliseyi genişletmek için sonradan oyulduğunu düşündürür. Günümüzde kuzey apsisi ve altarı oldukça sağlamken güney apsisi kısmen tahribata uğramıştır. Tam ortadaki, taban kısmı kırılmış yarım sütun kalıntısı ise yapının mimari karakterini tamamlayan otantik bir detaydır." data-en="About 300 metres north of Bahçeli, the Dam Önü Church appears from the outside to have two doorways side by side. The space behind the eastern entrance has long since collapsed and lost its function, but the western door opens into the main hall, roughly 4×5 metres. The building has an unusual two-nave, double-apse plan: the southern part near the entrance is barrel-vaulted, while the northern nave has a flat ceiling. The presence of two architectural styles in a single space suggests the northern nave was carved later to enlarge the church. Today the northern apse and its altar are remarkably intact, while the southern apse is partly damaged. A half-column stump with a broken base stands at the very centre — an authentic detail that completes the building&#x27;s character.">Bahçeli köyünün yaklaşık 300 metre kuzeyinde konumlanan Dam Önü Kilisesi, dışarıdan bakıldığında yan yana iki giriş kapısı olan bir yapı izlenimi verir. Doğu yönündeki girişin ardındaki alan zamanla tamamen çökmüş ve işlevini yitirmiş olsa da, batı yönündeki kapıdan geçildiğinde yaklaşık 4×5 metre ölçülerindeki asıl kilise mekânına ulaşılır. İki nefli ve çift apsisli özgün bir plana sahip yapıda girişe yakın güney bölüm beşik tonozla örtülüyken kuzey nefi düz tavanlıdır. Tek mekânda iki farklı mimari üslubun bir arada görülmesi, kuzeydeki nefin kiliseyi genişletmek için sonradan oyulduğunu düşündürür. Günümüzde kuzey apsisi ve altarı oldukça sağlamken güney apsisi kısmen tahribata uğramıştır. Tam ortadaki, taban kısmı kırılmış yarım sütun kalıntısı ise yapının mimari karakterini tamamlayan otantik bir detaydır.</p></div></article>
+    <article class="site-card" id="ali-bagi-kilisesi"><div class="img"><img src="images/02-ali-bagi-kilisesi.jpg" alt="Ali Bağı Kilisesi" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kilise · ~1 km kuzeydoğu" data-en="Church · ~1 km northeast">Kilise · ~1 km kuzeydoğu</span><h3 data-tr="Ali Bağı Kilisesi" data-en="Ali Bağı Church">Ali Bağı Kilisesi</h3><p data-tr="Bahçeli köyünün yaklaşık bir kilometre kuzeydoğusunda, büyükçe bir kaya konisinin içine oyularak inşa edilen bu kilise, Kapadokya&#x27;nın mütevazı ama dikkat çekici duraklarından biridir. Güneye bakan girişi olan tek nefli ve düz tavanlı yapı, 3×2 metre ölçülerinde küçük ve sade bir mimari sunar. Duvarlara oyulmuş sedir benzeri oturma alanları ve kırmızı kök boyayla resmedilmiş belirgin bir haç figürü barındıran kilisenin apsisi, benzerlerine kıyasla oldukça sağlamdır. Çevresindeki birkaç küçük tarım işliğiyle birlikte bu alan, geçmişteki dini inançlarla günlük kırsal yaşamın nasıl iç içe geçtiğini güzel biçimde yansıtır." data-en="About a kilometre northeast of Bahçeli, this church was carved into a large rock cone — one of Cappadocia&#x27;s modest but striking stops. Single-naved and flat-ceilinged, with a south-facing entrance, it is small and plain at roughly 3×2 metres. Bench-like seating is cut into the walls, and a clear cross painted in red madder marks the apse, which survives in unusually good condition. Together with the few small agricultural workshops around it, the site beautifully reflects how religious belief and everyday rural life were once interwoven here.">Bahçeli köyünün yaklaşık bir kilometre kuzeydoğusunda, büyükçe bir kaya konisinin içine oyularak inşa edilen bu kilise, Kapadokya'nın mütevazı ama dikkat çekici duraklarından biridir. Güneye bakan girişi olan tek nefli ve düz tavanlı yapı, 3×2 metre ölçülerinde küçük ve sade bir mimari sunar. Duvarlara oyulmuş sedir benzeri oturma alanları ve kırmızı kök boyayla resmedilmiş belirgin bir haç figürü barındıran kilisenin apsisi, benzerlerine kıyasla oldukça sağlamdır. Çevresindeki birkaç küçük tarım işliğiyle birlikte bu alan, geçmişteki dini inançlarla günlük kırsal yaşamın nasıl iç içe geçtiğini güzel biçimde yansıtır.</p></div></article>
+    <article class="site-card" id="gulistan-kilisesi"><div class="img"><img src="images/03-gulistan-kilisesi.jpg" alt="Gülistan Kilisesi" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kilise · ~100 m güney" data-en="Church · ~100 m south">Kilise · ~100 m güney</span><h3 data-tr="Gülistan Kilisesi" data-en="Gülistan Church">Gülistan Kilisesi</h3><p data-tr="Bahçeli&#x27;nin 100 metre güneyinde, Mamasun Vadisi&#x27;nin batı yamacında yer alan Gülistan Kilisesi, bölgedeki zengin kaya oyma yerleşim kompleksinin zarif bir parçasıdır. Vadideki köprünün yaklaşık 230 metre güneyindeki bu güneye bakışlı yapı, yaklaşık 15 metrekarelik kare formu ve tavan merkezindeki küçük kubbesiyle dikkat çeker. Girişte ziyaretçileri tavana ince işçilikle kazınmış 50×50 cm ölçülerinde görkemli bir haç karşılar; işlemeli kapının hemen üzerinde ise kırmızı boyayla resmedilmiş bir başka haç vardır. Geçmişte içinde ateş yakılması nedeniyle tavanı islenmiş olsa da, çevresindeki kaya odalarıyla bütünlük oluşturan yapı, vadinin saklı dini mimari hazinelerinden biridir." data-en="Just 100 metres south of the village, on the western slope of the Mamasun Valley, Gülistan Church is an elegant part of the area&#x27;s rich rock-cut settlement. South-facing and set about 230 metres south of the valley bridge, it is notable for its roughly 15-square-metre square plan and the small dome at the centre of its ceiling. A magnificent 50×50 cm cross, finely incised into the ceiling, greets visitors at the entrance, while another cross painted in red sits just above the worked doorway. Although its ceiling was blackened by fires lit inside in the past, the church — forming a whole with the rock chambers around it — remains one of the valley&#x27;s hidden treasures of religious architecture.">Bahçeli'nin 100 metre güneyinde, Mamasun Vadisi'nin batı yamacında yer alan Gülistan Kilisesi, bölgedeki zengin kaya oyma yerleşim kompleksinin zarif bir parçasıdır. Vadideki köprünün yaklaşık 230 metre güneyindeki bu güneye bakışlı yapı, yaklaşık 15 metrekarelik kare formu ve tavan merkezindeki küçük kubbesiyle dikkat çeker. Girişte ziyaretçileri tavana ince işçilikle kazınmış 50×50 cm ölçülerinde görkemli bir haç karşılar; işlemeli kapının hemen üzerinde ise kırmızı boyayla resmedilmiş bir başka haç vardır. Geçmişte içinde ateş yakılması nedeniyle tavanı islenmiş olsa da, çevresindeki kaya odalarıyla bütünlük oluşturan yapı, vadinin saklı dini mimari hazinelerinden biridir.</p></div></article>
+    <article class="site-card" id="bukalemun-kayasi"><div class="img"><img src="images/05-bukalemun-kayasi.jpg" alt="Bukalemun Kayası" loading="lazy"></div><div class="body"><span class="cat" data-tr="Doğa · Ayvalı–Bahçeli yolu" data-en="Rock formation · Ayvalı–Bahçeli road">Doğa · Ayvalı–Bahçeli yolu</span><h3 data-tr="Bukalemun Kayası" data-en="Chameleon Rock">Bukalemun Kayası</h3><p data-tr="Ayvalı&#x27;dan Bahçeli&#x27;ye uzanan ana yol üzerindeki Bukalemun Kayası, kolay ulaşımı ve hemen önündeki araç park alanıyla güzergâhın en pratik duraklarından biridir. Kapadokya&#x27;da sıkça rastlanan figüratif kaya oluşumları arasında özgün silüetiyle öne çıkan bu yapı, devasa bir bukalemunun tüfler üzerinde güneşlenmesini andıran görünümüyle nefes keser. Çevresini saran peri bacası manzarasıyla bütünleşen kaya, özellikle akşam saatlerinde büründüğü atmosferle etkileyici bir görsel sunar." data-en="On the main road from Ayvalı to Bahçeli, the Chameleon Rock is one of the most convenient stops along the route, with easy access and parking right in front. Among the many figurative rock formations of Cappadocia, it stands out for its distinctive silhouette — resembling a giant chameleon basking on the tuff. Set against a backdrop of fairy chimneys, the rock is especially striking at dusk, when the light gives it a memorable atmosphere.">Ayvalı'dan Bahçeli'ye uzanan ana yol üzerindeki Bukalemun Kayası, kolay ulaşımı ve hemen önündeki araç park alanıyla güzergâhın en pratik duraklarından biridir. Kapadokya'da sıkça rastlanan figüratif kaya oluşumları arasında özgün silüetiyle öne çıkan bu yapı, devasa bir bukalemunun tüfler üzerinde güneşlenmesini andıran görünümüyle nefes keser. Çevresini saran peri bacası manzarasıyla bütünleşen kaya, özellikle akşam saatlerinde büründüğü atmosferle etkileyici bir görsel sunar.</p></div></article>
+    <article class="site-card" id="gavur-deresi"><div class="img"><img src="images/06-gavur-deresi.jpg" alt="Gavur Deresi" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kaya yerleşim · ~3 km kuzey" data-en="Rural settlement · ~3 km north">Kaya yerleşim · ~3 km kuzey</span><h3 data-tr="Gavur Deresi" data-en="Gavur Deresi">Gavur Deresi</h3><p data-tr="Bahçeli&#x27;nin yaklaşık 3 kilometre kuzeyinde, Mamasun Vadisi içinde saklı kalan ve halk arasında &quot;Gavur Deresi&quot; olarak anılan bu kaya oyma yerleşim, bölgenin zengin tarımsal ve kültürel geçmişine ışık tutar. Kış aylarını köyde geçiren halkın yazları göç ederek kullandığı geleneksel bir &quot;tarım yaylası&quot; modelini yansıtan alanda şırahane ve güvercinlik gibi çok sayıda zirai kaya işliği bulunur. İsminin, zamanında bu işlikleri kullanan Rumlardan ve şırahane duvarlarındaki haç izlerinden geldiği düşünülür. Çok sayıda meyve ağacının gölgesinde doğayla iç içe soluklanabileceğiniz Gavur Deresi, Kapadokya&#x27;nın kırsal yaşam kültürünü yerinde hissetmek isteyenler için dikkate değer bir rotadır." data-en="About 3 km north of Bahçeli, hidden within the Mamasun Valley, this rock-cut settlement — locally called &quot;Gavur Deresi&quot; — sheds light on the region&#x27;s rich agricultural and cultural past. It reflects a traditional &quot;farming yayla&quot; pattern, used in summer by villagers who wintered in the village, and contains many agricultural rock workshops such as wine presses and dovecotes. Its name is thought to derive from the Greeks (Rum) who once used these workshops and from the cross marks on the wine-press walls. Shaded by countless fruit trees, Gavur Deresi is a rewarding route for anyone wishing to experience Cappadocia&#x27;s rural life first-hand.">Bahçeli'nin yaklaşık 3 kilometre kuzeyinde, Mamasun Vadisi içinde saklı kalan ve halk arasında "Gavur Deresi" olarak anılan bu kaya oyma yerleşim, bölgenin zengin tarımsal ve kültürel geçmişine ışık tutar. Kış aylarını köyde geçiren halkın yazları göç ederek kullandığı geleneksel bir "tarım yaylası" modelini yansıtan alanda şırahane ve güvercinlik gibi çok sayıda zirai kaya işliği bulunur. İsminin, zamanında bu işlikleri kullanan Rumlardan ve şırahane duvarlarındaki haç izlerinden geldiği düşünülür. Çok sayıda meyve ağacının gölgesinde doğayla iç içe soluklanabileceğiniz Gavur Deresi, Kapadokya'nın kırsal yaşam kültürünü yerinde hissetmek isteyenler için dikkate değer bir rotadır.</p></div></article>
+    <article class="site-card" id="kirk-gugle"><div class="img"><img src="images/07-kirk-gugle.jpg" alt="Kırk Guğle" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kaya yerleşim · güney · Mamasun Vadisi" data-en="Rock dwelling · south · Mamasun Valley">Kaya yerleşim · güney · Mamasun Vadisi</span><h3 data-tr="Kırk Guğle" data-en="Kırk Guğle">Kırk Guğle</h3><p data-tr="Bahçeli köyünün güneyinde, Mamasun Vadisi içinde yer alan ve halk arasında &quot;Kırk Guğle&quot; olarak adlandırılan kaya oyma dikey yerleşim, bölgenin benzersiz yapılarından biridir. Köyden vadi tabanına inip yaklaşık 1 kilometre ilerlediğinizde doğu yönündeki dik yamaçlarda karşınıza çıkan yapı, irili ufaklı çok sayıda penceresiyle adeta kayalara oyulmuş dikey bir apartman görünümü sunar. Ziyaretçilerin taban seviyesinden girip içerideki tünellerle katlar arası geçiş sağlayabildiği Kırk Guğle&#x27;de güvercinlikler ve mutfak gibi geçmişin günlük yaşam izlerini taşıyan çok sayıda sivil ve zirai yapı bir aradadır." data-en="South of Bahçeli, within the Mamasun Valley, the vertical rock-cut settlement locally known as &quot;Kırk Guğle&quot; is one of the area&#x27;s most remarkable structures. Descending to the valley floor and walking about a kilometre, you meet it on the steep eastern slopes: with its many windows of all sizes, it looks like a vertical apartment block carved into the rock. Visitors enter at ground level and move between floors through internal tunnels, finding dovecotes, a kitchen and many other domestic and agricultural spaces that preserve traces of daily life.">Bahçeli köyünün güneyinde, Mamasun Vadisi içinde yer alan ve halk arasında "Kırk Guğle" olarak adlandırılan kaya oyma dikey yerleşim, bölgenin benzersiz yapılarından biridir. Köyden vadi tabanına inip yaklaşık 1 kilometre ilerlediğinizde doğu yönündeki dik yamaçlarda karşınıza çıkan yapı, irili ufaklı çok sayıda penceresiyle adeta kayalara oyulmuş dikey bir apartman görünümü sunar. Ziyaretçilerin taban seviyesinden girip içerideki tünellerle katlar arası geçiş sağlayabildiği Kırk Guğle'de güvercinlikler ve mutfak gibi geçmişin günlük yaşam izlerini taşıyan çok sayıda sivil ve zirai yapı bir aradadır.</p></div></article>
+    <article class="site-card" id="su-tunelleri"><div class="img"><img src="images/08-su-tunelleri.jpg" alt="Su Tünelleri" loading="lazy"></div><div class="body"><span class="cat" data-tr="Doğa · Mamasun Vadisi tabanı" data-en="Natural tunnels · Mamasun Valley floor">Doğa · Mamasun Vadisi tabanı</span><h3 data-tr="Su Tünelleri" data-en="Water Tunnels">Su Tünelleri</h3><p data-tr="Mamasun Vadisi&#x27;nin tabanında yer alan ve Kapadokya&#x27;da eşine nadir rastlanan doğal su tünelleri, doğanın şekillendirici gücünü gözler önüne serer. Vadiden akan suların zamanla yumuşak tüf kayalarını sabırla aşındırmasıyla oluşan bu yapılar, bölgenin jeolojik zenginliğine eşsiz bir boyut katar. İrili ufaklı birçok koldan oluşan ve bazılarının uzunluğu 100 metreye ulaşan bu tünellerin içinde ziyaretçiler rahatlıkla yürüyerek keşif yapabilir. Bu yoğunlukta ve uzunlukta doğal su tünelinin bir arada bulunduğu başka bir alanın olmaması, Mamasun Vadisi&#x27;ni doğa tutkunları için ayrıcalıklı bir rota hâline getirir." data-en="On the floor of the Mamasun Valley, these natural water tunnels — rare in Cappadocia — reveal nature&#x27;s shaping power. Formed as the valley&#x27;s streams patiently wore away the soft tuff over time, they add a singular dimension to the region&#x27;s geological wealth. Made up of many branches large and small, some reaching 100 metres in length, the tunnels can be comfortably walked through. The fact that no other area holds such a density and length of natural water tunnels makes the valley a privileged route for nature lovers and adventurers.">Mamasun Vadisi'nin tabanında yer alan ve Kapadokya'da eşine nadir rastlanan doğal su tünelleri, doğanın şekillendirici gücünü gözler önüne serer. Vadiden akan suların zamanla yumuşak tüf kayalarını sabırla aşındırmasıyla oluşan bu yapılar, bölgenin jeolojik zenginliğine eşsiz bir boyut katar. İrili ufaklı birçok koldan oluşan ve bazılarının uzunluğu 100 metreye ulaşan bu tünellerin içinde ziyaretçiler rahatlıkla yürüyerek keşif yapabilir. Bu yoğunlukta ve uzunlukta doğal su tünelinin bir arada bulunduğu başka bir alanın olmaması, Mamasun Vadisi'ni doğa tutkunları için ayrıcalıklı bir rota hâline getirir.</p></div></article>
+    <article class="site-card" id="eski-bahceli-koyu"><div class="img"><img src="images/09-eski-bahceli-koyu.jpg" alt="Eski Bahçeli Köyü" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kaya yerleşim · Mamasun Vadisi" data-en="Old village · Mamasun Valley">Kaya yerleşim · Mamasun Vadisi</span><h3 data-tr="Eski Bahçeli Köyü" data-en="Old Bahçeli Village">Eski Bahçeli Köyü</h3><p data-tr="1950&#x27;li yıllara kadar Bahçeli&#x27;nin asıl yerleşim merkezi olan Mamasun Vadisi içindeki Eski Bahçeli Köyü, bugün de tüm yaşanmışlığıyla yerli yerinde durur. Köy halkının zamanla bugünkü yerleşime taşınmasına rağmen tarihi dokusunu koruyan bu nostaljik alan; geleneksel taş evleri, tarihi çeşmeleri, köprüleri, mağara depoları ve katlı güvercinlikleriyle kusursuz bir mimari ahenk sunar. Bir yanda kuş cıvıltıları ve akan suyun melodisi vadiye yayılırken, diğer yanda duvarlarında eski hatıraların izini taşıyan kaya oyma evler, ziyaretçilerini doğa ve tarihle iç içe huzurlu bir atmosfere davet eder." data-en="The main settlement of Bahçeli until the 1950s, Old Bahçeli within the Mamasun Valley still stands today, full of lived history. Though the villagers later moved to the present settlement, this nostalgic place has kept its historic fabric — with traditional stone houses, old fountains, bridges, cave storerooms and multi-storey dovecotes in flawless harmony. As birdsong and the melody of running water spread through the valley, the rock-cut houses, their walls bearing traces of old memories, invite visitors into a peaceful atmosphere where nature and history meet.">1950'li yıllara kadar Bahçeli'nin asıl yerleşim merkezi olan Mamasun Vadisi içindeki Eski Bahçeli Köyü, bugün de tüm yaşanmışlığıyla yerli yerinde durur. Köy halkının zamanla bugünkü yerleşime taşınmasına rağmen tarihi dokusunu koruyan bu nostaljik alan; geleneksel taş evleri, tarihi çeşmeleri, köprüleri, mağara depoları ve katlı güvercinlikleriyle kusursuz bir mimari ahenk sunar. Bir yanda kuş cıvıltıları ve akan suyun melodisi vadiye yayılırken, diğer yanda duvarlarında eski hatıraların izini taşıyan kaya oyma evler, ziyaretçilerini doğa ve tarihle iç içe huzurlu bir atmosfere davet eder.</p></div></article>
+    <article class="site-card" id="mamasun-cicekleri"><div class="img"><img src="images/11-mamasun-cicekleri.jpg" alt="Mamasun Vadisi Çiçekleri" loading="lazy"></div><div class="body"><span class="cat" data-tr="Doğa · Mamasun Vadisi" data-en="Flora · Mamasun Valley">Doğa · Mamasun Vadisi</span><h3 data-tr="Mamasun Vadisi Çiçekleri" data-en="Flora of the Mamasun Valley">Mamasun Vadisi Çiçekleri</h3><p data-tr="Mamasun Vadisi yalnızca tarihi ve jeolojik güzellikleriyle değil, sunduğu zengin doğal yaşamla da dikkat çeken saklı bir cennettir. Vadiyi çevreleyen yüksek duvarlar içerideki nemi hapsederek adeta doğal bir koruma alanı yaratır ve bölgenin biyolojik çeşitliliğini destekler. Vadi tabanından usulca akan derenin can verdiği bu ekosistem, bir kısmı yalnızca bu bölgeye özgü (endemik) yüzlerce farklı çiçek ve bitki türüne ev sahipliği yapar. Doğanın her rengini bir arada bulabileceğiniz vadi, doğa yürüyüşçüleri ve botanik meraklıları için benzersiz bir rotadır." data-en="The Mamasun Valley is a hidden paradise notable not only for its historical and geological beauty but also for its rich natural life. The high walls enclosing it trap the moisture inside, creating a natural refuge that supports the region&#x27;s biodiversity. Fed by the stream that flows gently along the valley floor, this ecosystem hosts hundreds of different flowers and plants — some endemic to this area alone. Offering every colour of nature in one place, the valley is a unique route for hikers and botany enthusiasts.">Mamasun Vadisi yalnızca tarihi ve jeolojik güzellikleriyle değil, sunduğu zengin doğal yaşamla da dikkat çeken saklı bir cennettir. Vadiyi çevreleyen yüksek duvarlar içerideki nemi hapsederek adeta doğal bir koruma alanı yaratır ve bölgenin biyolojik çeşitliliğini destekler. Vadi tabanından usulca akan derenin can verdiği bu ekosistem, bir kısmı yalnızca bu bölgeye özgü (endemik) yüzlerce farklı çiçek ve bitki türüne ev sahipliği yapar. Doğanın her rengini bir arada bulabileceğiniz vadi, doğa yürüyüşçüleri ve botanik meraklıları için benzersiz bir rotadır.</p></div></article>
+    <article class="site-card" id="anit-mezar"><div class="img"><img src="images/12-anit-mezar.jpg" alt="Anıt Mezar" loading="lazy"></div><div class="body"><span class="cat" data-tr="Mezar · Mamasun Vadisi kolları" data-en="Tombs · valley branches">Mezar · Mamasun Vadisi kolları</span><h3 data-tr="Anıt Mezar" data-en="Monumental Tombs">Anıt Mezar</h3><p data-tr="Mamasun Vadisi&#x27;nin çeşitli kollarında, yüksek noktalara konumlanmış çok sayıda anıt mezar, bölgenin gizemli geçmişine sessizce tanıklık eder. Dar bir girişten geçilerek ulaşılan bu etkileyici kaya oyma mekânlarda, antik çağların ölü gömme geleneklerini yansıtan &quot;arkosolyum&quot; tipi mezar nişleri göze çarpar. Mezar odalarının duvarlarında kırmızı kök boyasıyla işlenmiş ölümsüzlük sembolleri ve geometrik süslemeler yer alır. Anma ritüellerinin parçası olarak mum koymak için kayalara oyulmuş nişleri de barındıran bu anıt mezarlar, Kapadokya&#x27;nın ruhani ve tarihi derinliğini yerinde hissettiren değerli bir duraktır." data-en="Set on high points along the valley&#x27;s various branches, numerous monumental tombs bear silent witness to the region&#x27;s mysterious past. Reached through a narrow entrance, these striking rock-cut spaces feature &quot;arcosolium&quot; burial niches reflecting the funerary traditions of antiquity. On the walls of the tomb chambers are immortality symbols and geometric ornaments worked in red madder. Including niches cut into the rock to hold candles as part of remembrance rituals, these tombs convey Cappadocia&#x27;s spiritual and historical depth.">Mamasun Vadisi'nin çeşitli kollarında, yüksek noktalara konumlanmış çok sayıda anıt mezar, bölgenin gizemli geçmişine sessizce tanıklık eder. Dar bir girişten geçilerek ulaşılan bu etkileyici kaya oyma mekânlarda, antik çağların ölü gömme geleneklerini yansıtan "arkosolyum" tipi mezar nişleri göze çarpar. Mezar odalarının duvarlarında kırmızı kök boyasıyla işlenmiş ölümsüzlük sembolleri ve geometrik süslemeler yer alır. Anma ritüellerinin parçası olarak mum koymak için kayalara oyulmuş nişleri de barındıran bu anıt mezarlar, Kapadokya'nın ruhani ve tarihi derinliğini yerinde hissettiren değerli bir duraktır.</p></div></article>
+    <article class="site-card" id="aci-su"><div class="img"><img src="images/13-aci-su.jpg" alt="Acı Su" loading="lazy"></div><div class="body"><span class="cat" data-tr="Doğa · ~1,5 km" data-en="Mineral spring · ~1.5 km">Doğa · ~1,5 km</span><h3 data-tr="Acı Su" data-en="Acı Su (Mineral Spring)">Acı Su</h3><p data-tr="Mamasun Vadisi içinde, Bahçeli&#x27;ye yaklaşık 1,5 kilometre mesafedeki ve yöre halkının &quot;Acı Su&quot; olarak adlandırdığı doğal maden suyu kaynağı, tarihi ve şifalı özellikleriyle öne çıkar. Çevre düzenlemesi Bahçelili bir gurbetçi tarafından yaptırılan ve yer altından baloncuklar eşliğinde kaynayarak çıkan bu su; yumuşak içimi, demirsi tadı ve gazlı yapısıyla dikkat çeker. Uzun süre bekletildiğinde sararan Acı Su, yöre halkının günlük yaşamında önemli bir yer tutar; özellikle Ramazan&#x27;da teravih sonrasında cami önünde herkese ikram edilen kültürel bir değere dönüşmüştür. Geçmiş yıllarda kadınların doğal havuzlara girerek şifa aradıkları ve suyun kadın hastalıklarına iyi geldiği aktarılır." data-en="Within the Mamasun Valley, about 1.5 km from Bahçeli, the natural mineral spring locally called &quot;Acı Su&quot; (Bitter Water) stands out for its history and reputed healing properties. Its surroundings were landscaped by a Bahçeli native living abroad, and the water bubbles up from underground with a soft taste, an iron tang and natural carbonation. Turning yellow when left to stand, Acı Su holds an important place in local life — during Ramadan it became a custom to offer it to everyone in front of the mosque after the tarawih prayers. It is said that in years past women bathed in natural pools here in search of healing, the water being held good for women&#x27;s ailments.">Mamasun Vadisi içinde, Bahçeli'ye yaklaşık 1,5 kilometre mesafedeki ve yöre halkının "Acı Su" olarak adlandırdığı doğal maden suyu kaynağı, tarihi ve şifalı özellikleriyle öne çıkar. Çevre düzenlemesi Bahçelili bir gurbetçi tarafından yaptırılan ve yer altından baloncuklar eşliğinde kaynayarak çıkan bu su; yumuşak içimi, demirsi tadı ve gazlı yapısıyla dikkat çeker. Uzun süre bekletildiğinde sararan Acı Su, yöre halkının günlük yaşamında önemli bir yer tutar; özellikle Ramazan'da teravih sonrasında cami önünde herkese ikram edilen kültürel bir değere dönüşmüştür. Geçmiş yıllarda kadınların doğal havuzlara girerek şifa aradıkları ve suyun kadın hastalıklarına iyi geldiği aktarılır.</p></div></article>
+    <article class="site-card" id="osman-efendi-camii"><div class="img"><img src="images/15-osman-efendi-camii.jpg" alt="Osman Efendi Camii" loading="lazy"></div><div class="body"><span class="cat" data-tr="Cami · köy merkezi · 1746" data-en="Mosque · village centre · 1746">Cami · köy merkezi · 1746</span><h3 data-tr="Osman Efendi Camii" data-en="Osman Efendi Mosque">Osman Efendi Camii</h3><p data-tr="Bahçeli&#x27;nin tarihi dokusunu taçlandıran Osman Efendi Camii, Hicri 1159 — yani Miladi 1746 — yılında inşa edilmiştir. Kesme taşın ustalıkla işlendiği yapı; kare planlı harimi ve dört köşedeki pandantifler üzerine oturan zarif kubbesiyle Kapadokya&#x27;nın Osmanlı mirasına özgü sade ve özgün mimariyi yansıtır. Minberi üzerindeki Osmanlıca kitabe, yapının tarihine ve banisine dair en önemli belgesel kanıttır. İnşa tarihi, bölgede Osmanlı yerleşiminin hız kazandığı bir döneme denk gelir; 18. yüzyıl ortalarında Nevşehir ve Ürgüp çevresinde pek çok köy camii art arda yükselmiştir. Rum kökenli bir yerleşim olan Bahçeli&#x27;nin yeni kimliğini taşa işleyen cami, 1871 onarımıyla günümüze ulaşmış olup 1976&#x27;dan bu yana birinci derece anıtsal sit statüsünde tescillidir ve Vakıflar Genel Müdürlüğü&#x27;nün koruması altındadır." data-en="Crowning the historic fabric of Bahçeli, the Osman Efendi Mosque was built in AH 1159 — AD 1746. Skilfully worked in cut stone, with a square prayer hall and an elegant dome resting on pendentives at the four corners, it reflects the plain, distinctive architecture of Cappadocia&#x27;s Ottoman heritage. The Ottoman-Turkish inscription on its minbar is the most important documentary evidence of the building&#x27;s date and patron. Its construction coincides with a period of accelerating Ottoman settlement, when many village mosques rose in quick succession around Nevşehir and Ürgüp in the mid-18th century. Marking in stone the new identity of Bahçeli — a settlement of Greek origin — the mosque survives today thanks to an 1871 restoration. It has been registered as a first-degree monumental conservation site since 1976 and is protected by the General Directorate of Foundations.">Bahçeli'nin tarihi dokusunu taçlandıran Osman Efendi Camii, Hicri 1159 — yani Miladi 1746 — yılında inşa edilmiştir. Kesme taşın ustalıkla işlendiği yapı; kare planlı harimi ve dört köşedeki pandantifler üzerine oturan zarif kubbesiyle Kapadokya'nın Osmanlı mirasına özgü sade ve özgün mimariyi yansıtır. Minberi üzerindeki Osmanlıca kitabe, yapının tarihine ve banisine dair en önemli belgesel kanıttır. İnşa tarihi, bölgede Osmanlı yerleşiminin hız kazandığı bir döneme denk gelir; 18. yüzyıl ortalarında Nevşehir ve Ürgüp çevresinde pek çok köy camii art arda yükselmiştir. Rum kökenli bir yerleşim olan Bahçeli'nin yeni kimliğini taşa işleyen cami, 1871 onarımıyla günümüze ulaşmış olup 1976'dan bu yana birinci derece anıtsal sit statüsünde tescillidir ve Vakıflar Genel Müdürlüğü'nün koruması altındadır.</p></div></article>
+    <article class="site-card" id="buyuk-oluk-kilisesi"><div class="img"><img src="images/16-buyuk-oluk-kilisesi.jpg" alt="Büyük Oluk Kilisesi" loading="lazy"></div><div class="body"><span class="cat" data-tr="Kilise · Bahçeli–Ayvalı sınırı" data-en="Church · Bahçeli–Ayvalı border">Kilise · Bahçeli–Ayvalı sınırı</span><h3 data-tr="Büyük Oluk Kilisesi" data-en="Büyük Oluk Church">Büyük Oluk Kilisesi</h3><p data-tr="Bahçeli ile Ayvalı sınırında, dere yatağı içinde konumlanan bu görkemli kilise, ince işçiliğiyle döneminde bölgenin önemli dini yapılarından biri olduğuna dair güçlü izler taşır. Batıya bakan giriş kapısı bulunan yapı, yaklaşık 10×4 metre ölçülerinde olup beşik tonozla inşa edilmiştir. Nefin bitimindeki apsis, özenle kayaya oyulmuş ince işçilikli nişleri ve hem giriş kapısında hem iç duvarlarda göze çarpan çeşitli haç kazımalarıyla yapının tarihi ve sanatsal değerini ortaya koyar. Günümüzde apsisin önünde define arayıcılarınca açılmış yaklaşık 5 metre derinliğinde bir çukur bulunsa da, kilise barındırdığı zarif detaylar ve mistik atmosferiyle keşfe çıkanlar için dikkat çekici bir duraktır." data-en="On the border of Bahçeli and Ayvalı, set within a stream bed, this grand church bears strong signs of having been one of the area&#x27;s important religious buildings, thanks to its fine workmanship. With a west-facing entrance, it measures roughly 10×4 metres and is barrel-vaulted. The apse at the end of the nave carries finely carved niches, while various incised crosses on both the doorway and the interior walls reveal the building&#x27;s historical and artistic value. Although a pit some 5 metres deep, dug by treasure hunters, now lies in front of the apse, the church remains a striking stop for explorers, with its elegant details and mystical atmosphere.">Bahçeli ile Ayvalı sınırında, dere yatağı içinde konumlanan bu görkemli kilise, ince işçiliğiyle döneminde bölgenin önemli dini yapılarından biri olduğuna dair güçlü izler taşır. Batıya bakan giriş kapısı bulunan yapı, yaklaşık 10×4 metre ölçülerinde olup beşik tonozla inşa edilmiştir. Nefin bitimindeki apsis, özenle kayaya oyulmuş ince işçilikli nişleri ve hem giriş kapısında hem iç duvarlarda göze çarpan çeşitli haç kazımalarıyla yapının tarihi ve sanatsal değerini ortaya koyar. Günümüzde apsisin önünde define arayıcılarınca açılmış yaklaşık 5 metre derinliğinde bir çukur bulunsa da, kilise barındırdığı zarif detaylar ve mistik atmosferiyle keşfe çıkanlar için dikkat çekici bir duraktır.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ZİYARET ============ -->
+  <section class="section" id="ziyaret">
+    <div class="wrap">
+      <p class="eyebrow" data-tr="Bölüm 02 · Ziyaret & Ulaşım" data-en="Part 02 · Visit & Getting Here">Bölüm 02 · Ziyaret & Ulaşım</p>
+      <h2 data-tr="Köye nasıl gelinir?" data-en="How to get here">Köye nasıl gelinir?</h2>
+      <div class="info-grid" style="margin-top:34px;">
+        <div class="card">
+          <span class="tag" data-tr="Ulaşım" data-en="Getting here">Ulaşım</span>
+          <h3 data-tr="Konum" data-en="Location">Konum</h3>
+          <p data-tr="Ürgüp merkezine 15 km, Nevşehir şehir merkezine 20 km. En yakın havalimanı Nevşehir Kapadokya Havalimanı&#x27;dır. Köye en kolay ulaşım özel araçla sağlanır." data-en="15 km from central Ürgüp and 20 km from Nevşehir. The nearest airport is Nevşehir Cappadocia Airport. The village is most easily reached by car.">Ürgüp merkezine 15 km, Nevşehir şehir merkezine 20 km. En yakın havalimanı Nevşehir Kapadokya Havalimanı'dır. Köye en kolay ulaşım özel araçla sağlanır.</p>
+        </div>
+        <div class="card">
+          <span class="tag" data-tr="Görülecekler" data-en="What to see">Görülecekler</span>
+          <h3 data-tr="Ne görülür?" data-en="Highlights">Ne görülür?</h3>
+          <p data-tr="Mamasun Vadisi, kaya kiliseleri ve freskler, Kırk Guğle, doğal su tünelleri, Eski Bahçeli ve Osman Efendi Camii." data-en="The Mamasun Valley, rock-cut churches and frescoes, Kırk Guğle, the natural water tunnels, Old Bahçeli and the Osman Efendi Mosque.">Mamasun Vadisi, kaya kiliseleri ve freskler, Kırk Guğle, doğal su tünelleri, Eski Bahçeli ve Osman Efendi Camii.</p>
+        </div>
+        <div class="card">
+          <span class="tag" data-tr="En iyi zaman" data-en="Best season">En iyi zaman</span>
+          <h3 data-tr="Ne zaman gelmeli?" data-en="When to come">Ne zaman gelmeli?</h3>
+          <p data-tr="İlkbahar ve sonbahar; bağların ve vadilerin en güzel olduğu, havanın ılıman olduğu dönemler."
+             data-en="Spring and autumn, when the vineyards and valleys are at their best and the weather is mild.">
+             İlkbahar ve sonbahar; bağların ve vadilerin en güzel olduğu, havanın ılıman olduğu dönemler.</p>
+        </div>
+      </div>
+      <p style="margin-top:34px;">
+        <a class="btn" href="#gezilecekler"
+           data-tr="Konumları haritada gör" data-en="See all locations on the map">Konumları haritada gör</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ İLETİŞİM ============ -->
+  <section class="section alt" id="iletisim">
+    <div class="wrap">
+      <p class="eyebrow" data-tr="Bölüm 03 · İletişim" data-en="Part 03 · Contact">Bölüm 03 · İletişim</p>
+      <div class="contact-grid">
+        <div>
+          <h2 data-tr="Bize ulaşın" data-en="Get in touch">Bize ulaşın</h2>
+          <p class="lead"
+             data-tr="Köy ile ilgili her türlü sorunuzu bize iletebilirsiniz."
+             data-en="You are welcome to send us any questions about the village.">
+             Köy ile ilgili her türlü sorunuzu bize iletebilirsiniz.</p>
+          <p style="margin-top:24px;">
+            <a class="btn" href="mailto:baybilgin@gmail.com"
+               data-tr="E-posta gönder" data-en="Send an email">E-posta gönder</a>
+          </p>
+        </div>
+        <div>
+          <ul class="contact-list">
+            <li><span class="label" data-tr="Muhtar" data-en="Village headman">Muhtar</span><span class="val">Kadir Korkmaz</span></li>
+            <li><span class="label" data-tr="Telefon" data-en="Phone">Telefon</span><span class="val"><a href="tel:+905365720316">0536 572 03 16</a></span></li>
+            <li><span class="label" data-tr="E-posta" data-en="Email">E-posta</span><span class="val"><a href="mailto:baybilgin@gmail.com">baybilgin@gmail.com</a></span></li>
+            <li><span class="label" data-tr="Adres" data-en="Address">Adres</span><span class="val" data-tr="Bahçeli Köyü, Ürgüp / Nevşehir" data-en="Bahçeli Village, Ürgüp / Nevşehir">Bahçeli Köyü, Ürgüp / Nevşehir</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="f-brand">
+      <b>Bahçeli Köyü</b>
+      <span>Ürgüp · Nevşehir · Kapadokya</span>
+    </div>
+    <small>
+      <span data-tr="Köy tanıtım ve kültürel miras sitesi." data-en="Village & cultural heritage site.">Köy tanıtım ve kültürel miras sitesi.</span><br>
+      © <span id="year"></span> · <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span>
+    </small>
+  </div>
+</footer>
+
+<script>
+  // ---- Dil değiştirme ----
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-tr]').forEach(function(el){
+      var txt = el.getAttribute('data-' + lang);
+      if(txt !== null) el.textContent = txt;
+    });
+    document.getElementById('btn-tr').classList.toggle('active', lang === 'tr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    try{ localStorage.setItem('bahceli-lang', lang); }catch(e){}
+  }
+  (function(){
+    var saved = 'tr';
+    try{ saved = localStorage.getItem('bahceli-lang') || 'tr'; }catch(e){}
+    setLang(saved);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+</script>
+
+<script>
+  (function(){
+    var SITES = [
+{n:1,slug:"dam-onu-kilisesi",tr:"İki Damönü Kilisesi",en:"İki Damönü Church",lat:38.55161111111111,lon:34.852},
+{n:2,slug:"ali-bagi-kilisesi",tr:"Ali Bağı Kilisesi",en:"Ali Bağı Church",lat:38.55422222222222,lon:34.85691666666667},
+{n:3,slug:"gulistan-kilisesi",tr:"Gülistan Kilisesi",en:"Gülistan Church",lat:38.54433333333333,lon:34.84691666666667},
+{n:4,slug:"iceridere-kilisesi",tr:"İçeridere Kilisesi",en:"İçeridere Church",lat:38.53590705039375,lon:34.84132831902766},
+{n:5,slug:"bukalemun-kayasi",tr:"Bukalemun Kayası",en:"Chameleon Rock",lat:38.54525364319128,lon:34.86036663811397},
+{n:6,slug:"gavur-deresi",tr:"Gavur Deresi",en:"Gavur Deresi",lat:38.56538888888888,lon:34.86411111111111},
+{n:7,slug:"kirk-gugle",tr:"Kırk Guğle",en:"Kırk Guğle",lat:38.53752777777778,lon:34.84350000000001},
+{n:8,slug:"su-tunelleri",tr:"Su Tünelleri",en:"Water Tunnels",lat:38.53602777777778,lon:34.83602222222223},
+{n:9,slug:"eski-bahceli-koyu",tr:"Eski Bahçeli Köyü",en:"Old Bahçeli Village",lat:38.54876362326932,lon:34.85362078179084},
+{n:10,slug:"mamasun-vadisi",tr:"Mamasun Vadisi",en:"Mamasun Valley",lat:38.54535248689611,lon:34.84875585214793},
+{n:12,slug:"anit-mezar",tr:"Anıt Mezar",en:"Monumental Tombs",lat:38.5358190541557,lon:34.83925405764965},
+{n:13,slug:"aci-su",tr:"Acı Su",en:"Acı Su",lat:38.55715543799345,lon:34.85592280644369},
+{n:14,slug:"ala-kilise",tr:"Ala Kilise",en:"Ala Kilise",lat:38.52219444444444,lon:34.84916666666667},
+{n:15,slug:"osman-efendi-camii",tr:"Osman Efendi Camii",en:"Osman Efendi Mosque",lat:38.54821521908838,lon:34.8507648702569},
+{n:16,slug:"buyuk-oluk-kilisesi",tr:"Büyük Oluk Kilisesi",en:"Büyük Oluk Church",lat:38.55427777777778,lon:34.86383333333333}
+    ];
+    var CENTER = [38.54880535776095,34.84867149359968];
+
+    // Per-card "Yol tarifi" links (work even if map fails)
+    SITES.forEach(function(s){
+      var card = document.getElementById(s.slug);
+      if(!card) return;
+      var body = card.querySelector('.body');
+      if(!body || body.querySelector('.loc-link')) return;
+      var a = document.createElement('a');
+      a.className = 'loc-link';
+      a.target = '_blank'; a.rel = 'noopener';
+      a.href = 'https://www.google.com/maps/dir/?api=1&destination=' + s.lat + ',' + s.lon;
+      a.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">'
+        + '<path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>'
+        + '<span data-tr="Yol tarifi" data-en="Directions">Yol tarifi</span>';
+      body.appendChild(a);
+    });
+
+    function buildMap(){
+      var el = document.getElementById('map');
+      if(!el) return;
+      if(typeof L === 'undefined'){
+        el.classList.add('failed');
+        el.textContent = (document.documentElement.lang === 'en')
+          ? 'Map loads on the published site (offline in this preview).'
+          : 'Harita yayımlanan sitede yüklenir (bu önizlemede çevrimdışı).';
+        return;
+      }
+      var map = L.map('map', {scrollWheelZoom:false}).setView(CENTER, 14);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+
+      var bounds = [];
+      var GLYPH = {
+        church:'<path d="M11 2h2v3h3v2h-3v3h-2V7H8V5h3z"/><path d="M6 22V11l6-3 6 3v11h-4v-5h-4v5z"/>',
+        mosque:'<path d="M12 2c-2.5 2-3.5 3.8-3.5 6.5h7C15.5 5.8 14.5 4 12 2z"/><path d="M5 22V10h14v12h-4v-5h-2v5z"/>',
+        rock:'<path d="M3 22V9l9-5 9 5v13h-6v-6H9v6z"/>',
+        nature:'<path d="M5 21C5 12 12 5 21 5c0 9-7 16-16 16z"/>',
+        center:'<path d="M7 22V3h11l-3 4 3 4H7z"/>'
+      };
+      var CAT = {
+        'dam-onu-kilisesi':'church','ali-bagi-kilisesi':'church','gulistan-kilisesi':'church',
+        'iceridere-kilisesi':'church','ala-kilise':'church','buyuk-oluk-kilisesi':'church',
+        'osman-efendi-camii':'mosque',
+        'gavur-deresi':'rock','kirk-gugle':'rock','eski-bahceli-koyu':'rock','anit-mezar':'rock',
+        'mamasun-vadisi':'nature','bukalemun-kayasi':'nature','su-tunelleri':'nature','aci-su':'nature'
+      };
+      function svgIcon(g){ return '<svg viewBox="0 0 24 24">' + GLYPH[g] + '</svg>'; }
+      SITES.forEach(function(s){
+        var cat = CAT[s.slug] || 'rock';
+        var icon = L.divIcon({className:'pin c-'+cat, html:'<span>'+svgIcon(cat)+'</span>',
+          iconSize:[30,30], iconAnchor:[15,15], popupAnchor:[0,-15]});
+        var m = L.marker([s.lat, s.lon], {icon:icon}).addTo(map);
+        m.bindPopup(function(){
+          var en = document.documentElement.lang === 'en';
+          var name = en ? s.en : s.tr;
+          var detay = en ? 'Details →' : 'Detay →';
+          return '<span class="pt">' + name + '</span>'
+               + '<a href="#' + s.slug + '">' + detay + '</a>';
+        });
+        bounds.push([s.lat, s.lon]);
+      });
+      var cIcon = L.divIcon({className:'pin c-center', html:'<span>'+svgIcon('center')+'</span>',
+        iconSize:[30,30], iconAnchor:[15,15], popupAnchor:[0,-15]});
+      L.marker(CENTER, {icon:cIcon}).addTo(map).bindPopup(function(){
+        var en = document.documentElement.lang === 'en';
+        return '<span class="pn">' + (en?'CENTRE':'MERKEZ') + '</span>'
+             + '<span class="pt">' + (en?'Village Square':'Köy Meydanı') + '</span>';
+      });
+      bounds.push(CENTER);
+      if(bounds.length) map.fitBounds(bounds, {padding:[40,40]});
+      setTimeout(function(){ map.invalidateSize(); }, 200);
+    }
+    if(document.readyState === 'complete') buildMap();
+    else window.addEventListener('load', buildMap);
+  })();
+</script>
+</body>
+</html>
