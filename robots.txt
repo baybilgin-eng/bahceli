@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://baybilgin-eng.github.io/bahceli/sitemap.xml
